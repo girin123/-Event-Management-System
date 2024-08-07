@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+    <h1 style="color: #333; text-align: center; margin-top: 20px;">Categories</h1>
+    <a th:href="@{/categories/new}" style="color: #3498db; text-decoration: none; display: block; text-align: center; margin-bottom: 20px;">Add New Category</a>
+    <table style="width: 80%; margin: 20px auto; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="category : ${categories}" style="border: 1px solid #ddd; padding: 10px;">
+                <td th:text="${category.name}" style="border: 1px solid #ddd; padding: 10px;">Category Name</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <a th:href="@{/categories/edit/{id}(id=${category.id})}" style="color: #3498db; text-decoration: none;">Edit</a> |
+                    <a th:href="@{/categories/delete/{id}(id=${category.id})}" style="color: #e74c3c; text-decoration: none;">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
